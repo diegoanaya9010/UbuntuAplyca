@@ -1,0 +1,120 @@
+		
+<meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+<html>
+
+
+<body style="background-color:#9c9c9c;">
+	
+	
+	<h1>Aplyca</h1>
+		
+		 <h2> Explicacion de Instalacion Server Web </h2>
+		
+<p>		Se llevo a cabo la instalacion del sistema operativo, posterior a ello se configuro el adapatador de red y se actualizaron los repositorios</p>
+<p>		una vez el entorno creado, se procede a instalar el sevidor web de preferencia, para este caso realizaremos una pequeña instalacion de un apache haciendo uso del comando <b>apt-get install apache2 </b> </p> 
+<p>una vez instalado el servidor web y demas dependencias, se procedió a configurar el puerto por defecto, por temas de seguridad. por tanto se tralada del puerto 80 al puerto 8088 </p>
+<p>para esto ingresamos al directorio apache2, y ubicamos el archivo llamado ports.</p>
+<p>		
+
+<h2>Información recopilada</h2>
+<h4>¿Qué Sistema Operativo tiene la máquina?</h4>
+		<p> el comando usado fue<b> lsb_release -d </b></p>
+ 		<p>Description:    Ubuntu 16.04.7 LTS</p>
+<p>		
+<p>		<p>El comando <b>hostnamectl</b>, enseña diversa infomación, entre la que se  indentifica con puntualidad cual es el sistema operativo. <p>
+<p>		
+<p>		<p>Static hostname: aplyca</p>
+<p>		<p>         Icon name: computer-vm</p>
+<p>		<p>           Chassis: vm</p>
+<p>		<p>        Machine ID: 59eae0d552492879d206b9c96282c622</p>
+<p>		<p>           Boot ID: f1c7be8d1d484d1c8ac5570b9af95f2b</p>
+<p>		<p>    Virtualization: microsoft</p>
+<p>		<p>  Operating System: Ubuntu 16.04.7 LTS</p>
+<p>		<p>            Kernel: Linux 4.4.0-186-generic</p>
+<p>		<p>      Architecture: x86-64</p>
+<p>		
+<h4>• Ver espacio en Disco</h4>
+		</p>
+<p>		Para ver espacio en disco generalmente se usa el comando <b> df -h </b>
+<p>		S.ficheros                  Tamaño Usados  Disp Uso% Montado en
+<p>		udev                          2,0G      0  2,0G   0% /dev
+<p>		tmpfs                         395M   5,6M  390M   2% /run
+<p>		/dev/mapper/ubuntu--vg-root   124G   1,7G  116G   2% /
+<p>		tmpfs                         2,0G      0  2,0G   0% /dev/shm
+<p>		tmpfs                         5,0M      0  5,0M   0% /run/lock
+<p>		tmpfs                         2,0G      0  2,0G   0% /sys/fs/cgroup
+<p>		/dev/sda1                     720M    59M  625M   9% /boot
+<p>		tmpfs                         395M      0  395M   0% /run/user/1000
+<p>		</p>
+<h4>• Cantidad de memoria RAM</h4>
+<p>		<p>
+<p>		Para ver cantidad de memoria se usa el comando <b>free</b>
+<p>		              total        used        free      shared  buff/cache   available
+<p>		Memoria:     4042312       90868     3624572        5920      326872     3715708
+<p>		Swap:       1003516           0     1003516
+<p>		</p>
+<p>		
+<h4>• Versión del kernel de Linux</h4>
+<p>		<p>la version del kernel de linux se puede leer con el comando <b>hostnamectl</b> o con el comando mas usado <b>uname -r </b> que arroja el siguiente resultado.
+<p>		
+<p>		4.4.0-186-generic
+<p>		</p>
+<p>		
+<h4>• Características de CPU</h4>
+<p>		<p>
+<p>		Las caracteristicas de la CPU se pueden ver usando el comando <b>lscpu</b> que muestra lo siguiente. Tambien podemos hacer uso del archivo virtual que contiene configuracion de la CPU <b>cat /proc/cpuinfo</b>
+<p>		Arquitectura:          x86_64
+<p>		modo(s) de operación de las CPUs:32-bit, 64-bit
+<p>		Orden de bytes:        Little Endian
+<p>		CPU(s):                1
+<p>		On-line CPU(s) list:   0
+<p>		Hilo(s) de procesamiento por núcleo:1
+<p>		Núcleo(s) por «socket»:1
+<p>		Socket(s):             1
+<p>		Modo(s) NUMA:          1
+<p>		ID de fabricante:      GenuineIntel
+<p>		Familia de CPU:        6
+<p>		Modelo:                60
+<p>		Model name:            Intel(R) Xeon(R) CPU E3-1241 v3 @ 3.50GHz
+<p>		Revisión:             3
+<p>		CPU MHz:               3491.914
+<p>		BogoMIPS:              6983.82
+<p>		Fabricante del hipervisor:Microsoft
+<p>		Tipo de virtualización:lleno
+<p>		Caché L1d:            32K
+<p>		Caché L1i:            32K
+<p>		Caché L2:             256K
+<p>		Caché L3:             8192K
+<p>		NUMA node0 CPU(s):     0
+<p>		</p>
+<p>		
+<h4>• IP Privada</h4>
+<p>		
+<p>		<p>La ip privada se obtiene con el comando <b>ifconfig</b> </p>
+<p>		<p>
+<p>		eth0      Link encap:Ethernet  direcciónHW 00:15:5d:09:a8:01
+<p>		          Direc.<b> inet:10.8.4.184</b>  Difus.:10.8.15.255  Másc:255.255.240.0
+<p>		          Dirección inet6: fe80::215:5dff:fe09:a801/64 Alcance:Enlace
+<p>		          Dirección inet6: 2801:18:9001:8:215:5dff:fe09:a801/64 Alcance:Global
+<p>		          ACTIVO DIFUSIÓN FUNCIONANDO MULTICAST  MTU:1500  Métrica:1
+<p>		          Paquetes RX:446724 errores:0 perdidos:0 overruns:0 frame:0
+<p>		          Paquetes TX:3348 errores:0 perdidos:0 overruns:0 carrier:0
+<p>		          colisiones:0 long.colaTX:1000
+<p>		          Bytes RX:80348710 (80.3 MB)  TX bytes:408812 (408.8 KB)
+<p>		
+</p>
+<p>		lo        Link encap:Bucle local
+<p>		          Direc. <b>inet:127.0.0.1</b>  Másc:255.0.0.0
+<p>		          Dirección inet6: ::1/128 Alcance:Anfitrión
+<p>		          ACTIVO BUCLE FUNCIONANDO  MTU:65536  Métrica:1
+<p>		          Paquetes RX:160 errores:0 perdidos:0 overruns:0 frame:0
+<p>		          Paquetes TX:160 errores:0 perdidos:0 overruns:0 carrier:0
+<p>		          colisiones:0 long.colaTX:1
+<p>		          Bytes RX:11840 (11.8 KB)  TX bytes:11840 (11.8 KB)
+<p>		
+<p>		</p>
+		
+		
+		</body>
+		</html>
+		
